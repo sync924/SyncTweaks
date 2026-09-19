@@ -49,8 +49,11 @@ nav a:hover {
 .hero {
     text-align: center;
     padding: 90px 20px 70px;
-    background:
-        radial-gradient(circle at 50% 20%, #29104a 0%, #050509 55%);
+    background: radial-gradient(
+        circle at 50% 20%,
+        #29104a 0%,
+        #050509 55%
+    );
 }
 
 .hero h1 {
@@ -219,13 +222,17 @@ footer {
 <body>
 
 <header>
-    <div class="logo">SYNC TWEAKS</div>
+
+    <div class="logo">
+        SYNC TWEAKS
+    </div>
 
     <nav>
         <a href="#">Home</a>
         <a href="#products">Products</a>
         <a href="#about">About</a>
     </nav>
+
 </header>
 
 <section class="hero">
@@ -238,13 +245,15 @@ footer {
     </p>
 
     <div class="hero-buttons">
+
         <a class="download" href="SyncTweaks.zip" download>
-            DOWNLOAD
+            DOWNLOAD FREE TWEAKS
         </a>
 
         <a class="discord" href="#">
             💬 DISCORD
         </a>
+
     </div>
 
 </section>
@@ -252,128 +261,225 @@ footer {
 <main class="container" id="products">
 
     <div class="section-title">
+
         <h2>Our Products</h2>
-        <p>Choose the tools you want to use.</p>
+
+        <p>
+            Choose the tools you want to use.
+        </p>
+
     </div>
 
     <div class="grid">
 
+        <!-- AIM TRAINER -->
+
         <div class="card">
+
             <div class="icon">🎯</div>
+
             <h3>Aim Trainer</h3>
+
             <p>
                 Practice reaction time, tracking, flicks and accuracy
                 without automating gameplay.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                $5
+            </div>
 
-            <button class="button" onclick="selectProduct('Aim Trainer')">
-                VIEW TRAINER
+            <button
+                class="button"
+                onclick="buyProduct('Aim Trainer', '$5')">
+
+                BUY NOW — $5
+
             </button>
+
         </div>
 
+
+        <!-- EDITING TRAINER -->
+
         <div class="card">
+
             <div class="icon">⚡</div>
+
             <h3>Editing Trainer</h3>
+
             <p>
                 Practice edit timing, reactions and consistency
                 on PC or controller.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                $5
+            </div>
 
-            <button class="button" onclick="selectProduct('Editing Trainer')">
-                VIEW TRAINER
+            <button
+                class="button"
+                onclick="buyProduct('Editing Trainer', '$5')">
+
+                BUY NOW — $5
+
             </button>
+
         </div>
 
+
+        <!-- CONSOLE TWEAKS -->
+
         <div class="card">
+
             <div class="icon">🎮</div>
+
             <h3>Console Tweaks</h3>
+
             <p>
                 Legitimate PlayStation and Xbox setup guidance
                 for display and responsiveness.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                $5
+            </div>
 
-            <button class="button" onclick="selectProduct('Console Tweaks')">
-                VIEW TWEAKS
+            <button
+                class="button"
+                onclick="buyProduct('Console Tweaks', '$5')">
+
+                BUY NOW — $5
+
             </button>
+
         </div>
 
+
+        <!-- NETWORK -->
+
         <div class="card">
+
             <div class="icon">🌐</div>
+
             <h3>Network Guide</h3>
+
             <p>
                 Connection and network setup guidance for
                 more consistent online gaming.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                $5
+            </div>
 
-            <button class="button" onclick="selectProduct('Network Guide')">
-                VIEW GUIDE
+            <button
+                class="button"
+                onclick="buyProduct('Network Guide', '$5')">
+
+                BUY NOW — $5
+
             </button>
+
         </div>
 
+
+        <!-- PREMIUM -->
+
         <div class="card">
+
             <div class="icon">💎</div>
+
             <h3>Premium Bundle</h3>
+
             <p>
                 Combine the SyncTweaks training and optimization
                 experiences in one package.
             </p>
 
-            <div class="price">$10</div>
+            <div class="price">
+                $10
+            </div>
 
-            <button class="button" onclick="selectProduct('Premium Bundle')">
-                VIEW BUNDLE
+            <button
+                class="button"
+                onclick="buyProduct('Premium Bundle', '$10')">
+
+                BUY NOW — $10
+
             </button>
+
         </div>
 
+
+        <!-- FREE PC TWEAKS -->
+
         <div class="card">
+
             <div class="icon">🛠️</div>
+
             <h3>PC Tweaks</h3>
+
             <p>
                 Legitimate Windows performance settings and
                 cleanup tools for gaming PCs.
             </p>
 
-            <div class="price">FREE</div>
+            <div class="price">
+                FREE
+            </div>
 
-            <button class="button" onclick="selectProduct('PC Tweaks')">
-                DOWNLOAD
-            </button>
+            <a
+                class="button"
+                href="SyncTweaks.zip"
+                download
+                style="text-align:center;text-decoration:none;">
+
+                DOWNLOAD FREE
+
+            </a>
+
         </div>
 
     </div>
 
+
     <div class="info" id="about">
-        <h2>Built for Gamers</h2>
+
+        <h2>
+            Built for Gamers
+        </h2>
 
         <p>
             SyncTweaks focuses on legitimate performance settings,
-            training tools and setup guides. No gameplay automation.
+            training tools and setup guides.
         </p>
 
         <p id="message">
-            Select a product above to get started.
+            Choose a product to get started.
         </p>
+
     </div>
 
 </main>
 
 <footer>
+
     © 2026 SyncTweaks • Performance & Training Tools
+
 </footer>
 
+
 <script>
-function selectProduct(product) {
+
+function buyProduct(product, price) {
+
     document.getElementById("message").textContent =
-        product + " selected — unlock and payment features coming soon.";
+        product + " — " + price +
+        " selected. Secure checkout will be connected next.";
+
 }
+
 </script>
 
 </body>
