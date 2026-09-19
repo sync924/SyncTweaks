@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SyncTweaks Editing Trainer</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050509;
+    color: white;
+}
+
+header {
+    padding: 22px 7%;
+    background: #08080e;
+    border-bottom: 1px solid #20202d;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #a855f7, #25d9ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #a855f7, #25d9ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #999;
+}
+
+.trainer {
+    margin-top: 35px;
+    padding: 30px;
+    background: #0b0b12;
+    border: 1px solid #29293a;
+    border-radius: 18px;
+}
+
+.sequence {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.edit-box {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 2px solid #29293a;
+    background: #101019;
+    font-size: 30px;
+    font-weight: bold;
+    transition: .15s;
+}
+
+.edit-box.active {
+    border-color: #25d9ff;
+    box-shadow: 0 0 20px #25d9ff55;
+}
+
+.edit-box.done {
+    border-color: #a855f7;
+    background: #1a1025;
+}
+
+.status {
+    text-align: center;
+    color: #aaa;
+    min-height: 25px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.stat {
+    min-width: 130px;
+    text-align: center;
+    background: #101019;
+    border: 1px solid #29293a;
+    border-radius: 12px;
+    padding: 15px 20px;
+}
+
+.stat span {
+    display: block;
+    color: #888;
+    font-size: 13px;
+}
+
+.stat strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 24px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 30px;
+    border: 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #8b5cf6, #25d9ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: .85;
+}
+
+.instructions {
+    margin-top: 25px;
+    padding: 18px;
+    background: #101019;
+    border: 1px solid #29293a;
+    border-radius: 12px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #aaa;
+    text-decoration: none;
+}
+
+.back:hover {
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .edit-box {
+        width: 65px;
+        height: 65px;
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SYNC TWEAKS</div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+
+    <h1>⚡ Editing Trainer</h1>
+
+    <p>
+        Practice reaction speed and editing consistency.
+    </p>
+
+    <div class="trainer">
+
+        <div class="status" id="status">
+            Press START to begin.
+        </div>
+
+        <div class="sequence" id="sequence">
+            <div class="edit-box">?</div>
+            <div class="edit-box">?</div>
+            <div class="edit-box">?</div>
+            <div class="edit-box">?</div>
+        </div>
+
+        <button id="start">
+            START TRAINING
+        </button>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat">
+            <span>Completed</span>
+            <strong id="completed">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Best Time</span>
+            <strong id="best">--</strong>
+        </div>
+
+        <div class="stat">
+            <span>Last Time</span>
+            <strong id="last">--</strong>
+        </div>
+
+    </div>
+
+    <div class="instructions">
+        <strong>How to play</strong><br>
+        Start the drill and follow the highlighted sequence.
+        Use the matching keyboard keys to complete the pattern as quickly
+        and accurately as possible.
+    </div>
+
+    <a class="back" href="index.html">
+        ← Back to SyncTweaks
+    </a>
+
+</section>
+
+</main>
+
+<script>
+
+const boxes = document.querySelectorAll(".edit-box");
+const startButton = document.getElementById("start");
+
+const statusText = document.getElementById("status");
+const completedText = document.getElementById("completed");
+const bestText = document.getElementById("best");
+const lastText = document.getElementById("last");
+
+const keys = ["Q", "E", "R", "F"];
+
+let sequence = [];
+let current = 0;
+let running = false;
+
+let completed = 0;
+let best = null;
+let startTime = 0;
+
+function randomSequence() {
+
+    sequence = [];
+
+    for (let i = 0; i < 4; i++) {
+        const randomIndex = Math.floor(Math.random() * keys.length);
+        sequence.push(keys[randomIndex]);
+    }
+
+}
+
+function showSequence() {
+
+    boxes.forEach((box, index) => {
+
+        box.textContent = sequence[index];
+
+        box.classList.remove("active");
+        box.classList.remove("done");
+
+    });
+
+    boxes[0].classList.add("active");
+
+}
+
+function updateStats() {
+
+    completedText.textContent = completed;
+
+    bestText.textContent =
+        best === null ? "--" : best + " ms";
+
+}
+
+function startTraining() {
+
+    randomSequence();
+
+    current = 0;
+    running = true;
+
+    startTime = performance.now();
+
+    showSequence();
+
+    statusText.textContent =
+        "Follow the sequence!";
+
+    startButton.textContent =
+        "RESET TRAINING";
+
+}
+
+function finishRound() {
+
+    const time =
+        Math.round(performance.now() - startTime);
+
+    completed++;
+
+    lastText.textContent =
+        time + " ms";
+
+    if (best === null || time < best) {
+        best = time;
+    }
+
+    updateStats();
+
+    running = false;
+
+    statusText.textContent =
+        "Round complete! Press START for another.";
+
+    boxes.forEach(box => {
+        box.classList.remove("active");
+        box.classList.add("done");
+    });
+
+}
+
+document.addEventListener("keydown", function(event) {
+
+    if (!running) return;
+
+    const key =
+        event.key.toUpperCase();
+
+    if (!keys.includes(key)) return;
+
+    if (key === sequence[current]) {
+
+        boxes[current].classList.remove("active");
+        boxes[current].classList.add("done");
+
+        current++;
+
+        if (current >= sequence.length) {
+
+            finishRound();
+
+        } else {
+
+            boxes[current].classList.add("active");
+
+        }
+
+    } else {
+
+        statusText.textContent =
+            "Wrong key — try again!";
+
+    }
+
+});
+
+startButton.addEventListener("click", function() {
+
+    startTraining();
+
+});
+
+updateStats();
+
+</script>
+
+</body>
+</html>
