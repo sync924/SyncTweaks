@@ -1,73 +1,380 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SyncTweaks</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #101014;
-            color: white;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .container {
-            max-width: 700px;
-            margin: 100px auto;
-            padding: 40px;
-        }
+<title>SyncTweaks</title>
 
-        h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        p {
-            color: #bdbdbd;
-            font-size: 18px;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050509;
+    color: white;
+}
 
-        .download {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 16px 35px;
-            background: #ffffff;
-            color: #101014;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 18px;
-        }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    border-bottom: 1px solid #20202d;
+    background: #08080e;
+}
 
-        .download:hover {
-            opacity: 0.85;
-        }
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #a855f7, #25d9ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
 
-        .box {
-            margin-top: 40px;
-            padding: 25px;
-            background: #19191f;
-            border-radius: 12px;
-        }
-    </style>
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 25px;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background:
+        radial-gradient(circle at 50% 20%, #29104a 0%, #050509 55%);
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin: 0;
+    background: linear-gradient(90deg, #a855f7, #25d9ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 20px auto;
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.hero-buttons a {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 6px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.download {
+    background: linear-gradient(90deg, #8b5cf6, #25d9ff);
+    color: white;
+}
+
+.discord {
+    border: 1px solid #333344;
+    color: white;
+    background: #11111a;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #888;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #12121c, #09090e);
+    border: 1px solid #29293a;
+    border-radius: 18px;
+    padding: 25px;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #25d9ff;
+    box-shadow: 0 0 25px #25d9ff18;
+}
+
+.icon {
+    font-size: 35px;
+}
+
+.card h3 {
+    margin: 15px 0 10px;
+    font-size: 22px;
+}
+
+.card p {
+    color: #999;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #8b5cf6, #25d9ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.85;
+}
+
+.info {
+    text-align: center;
+    margin-top: 45px;
+    padding: 30px;
+    background: #0d0d14;
+    border: 1px solid #242433;
+    border-radius: 18px;
+}
+
+.info p {
+    color: #999;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid #20202d;
+    color: #666;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 550px) {
+    nav {
+        display: none;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <div class="logo">SYNC TWEAKS</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<section class="hero">
 
     <h1>SYNC TWEAKS</h1>
 
-    <p>Simple Windows performance utilities for gamers.</p>
+    <p>
+        Performance tools and training experiences built for gamers.
+        Improve your setup, practice your skills, and optimize your system.
+    </p>
 
-  <a class="download" href="SyncTweaks.zip" download>
-    DOWNLOAD SYNC TWEAKS
-</a>    <div class="box">
-        <h2>SyncTweaks v1</h2>
-        <p>Performance settings • Game Mode • Temporary-file cleanup</p>
+    <div class="hero-buttons">
+        <a class="download" href="SyncTweaks.zip" download>
+            DOWNLOAD
+        </a>
+
+        <a class="discord" href="#">
+            💬 DISCORD
+        </a>
     </div>
 
-</div>
+</section>
+
+<main class="container" id="products">
+
+    <div class="section-title">
+        <h2>Our Products</h2>
+        <p>Choose the tools you want to use.</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Aim Trainer</h3>
+            <p>
+                Practice reaction time, tracking, flicks and accuracy
+                without automating gameplay.
+            </p>
+
+            <div class="price">$5</div>
+
+            <button class="button" onclick="selectProduct('Aim Trainer')">
+                VIEW TRAINER
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Editing Trainer</h3>
+            <p>
+                Practice edit timing, reactions and consistency
+                on PC or controller.
+            </p>
+
+            <div class="price">$5</div>
+
+            <button class="button" onclick="selectProduct('Editing Trainer')">
+                VIEW TRAINER
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Console Tweaks</h3>
+            <p>
+                Legitimate PlayStation and Xbox setup guidance
+                for display and responsiveness.
+            </p>
+
+            <div class="price">$5</div>
+
+            <button class="button" onclick="selectProduct('Console Tweaks')">
+                VIEW TWEAKS
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Network Guide</h3>
+            <p>
+                Connection and network setup guidance for
+                more consistent online gaming.
+            </p>
+
+            <div class="price">$5</div>
+
+            <button class="button" onclick="selectProduct('Network Guide')">
+                VIEW GUIDE
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">💎</div>
+            <h3>Premium Bundle</h3>
+            <p>
+                Combine the SyncTweaks training and optimization
+                experiences in one package.
+            </p>
+
+            <div class="price">$10</div>
+
+            <button class="button" onclick="selectProduct('Premium Bundle')">
+                VIEW BUNDLE
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>PC Tweaks</h3>
+            <p>
+                Legitimate Windows performance settings and
+                cleanup tools for gaming PCs.
+            </p>
+
+            <div class="price">FREE</div>
+
+            <button class="button" onclick="selectProduct('PC Tweaks')">
+                DOWNLOAD
+            </button>
+        </div>
+
+    </div>
+
+    <div class="info" id="about">
+        <h2>Built for Gamers</h2>
+
+        <p>
+            SyncTweaks focuses on legitimate performance settings,
+            training tools and setup guides. No gameplay automation.
+        </p>
+
+        <p id="message">
+            Select a product above to get started.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    © 2026 SyncTweaks • Performance & Training Tools
+</footer>
+
+<script>
+function selectProduct(product) {
+    document.getElementById("message").textContent =
+        product + " selected — unlock and payment features coming soon.";
+}
+</script>
 
 </body>
 </html>
