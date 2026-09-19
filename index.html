@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SyncTweaks</title>
 
 <style>
@@ -46,12 +47,12 @@ nav a:hover {
 
 .hero {
     text-align: center;
-    padding: 90px 20px 70px;
-    background: radial-gradient(circle at 50% 20%, #29104a, #050509 55%);
+    padding: 100px 20px 80px;
+    background: radial-gradient(circle at 50% 20%, #29104a, #050509 60%);
 }
 
 .hero h1 {
-    font-size: 58px;
+    font-size: 60px;
     margin: 0;
     background: linear-gradient(90deg, #a855f7, #25d9ff);
     -webkit-background-clip: text;
@@ -69,27 +70,34 @@ nav a:hover {
 .hero-button {
     display: inline-block;
     margin-top: 25px;
-    padding: 14px 28px;
+    padding: 15px 30px;
     border-radius: 10px;
     background: linear-gradient(90deg, #8b5cf6, #25d9ff);
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: .2s;
+}
+
+.hero-button:hover {
+    transform: translateY(-2px);
+    opacity: .9;
 }
 
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 55px 20px;
+    padding: 60px 20px;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .section-title h2 {
-    font-size: 32px;
+    font-size: 34px;
+    margin-bottom: 10px;
 }
 
 .section-title p {
@@ -99,24 +107,25 @@ nav a:hover {
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 22px;
 }
 
 .card {
     background: linear-gradient(145deg, #12121c, #09090e);
     border: 1px solid #29293a;
     border-radius: 18px;
-    padding: 25px;
-    transition: 0.2s;
+    padding: 26px;
+    transition: .2s;
 }
 
 .card:hover {
     transform: translateY(-5px);
     border-color: #25d9ff;
+    box-shadow: 0 0 25px #25d9ff18;
 }
 
 .icon {
-    font-size: 35px;
+    font-size: 38px;
 }
 
 .card h3 {
@@ -127,12 +136,16 @@ nav a:hover {
 .card p {
     color: #999;
     line-height: 1.5;
+    min-height: 48px;
 }
 
 .price {
     font-size: 25px;
     font-weight: bold;
     margin: 20px 0;
+    background: linear-gradient(90deg, #a855f7, #25d9ff);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .button {
@@ -140,17 +153,25 @@ nav a:hover {
     width: 100%;
     padding: 13px;
     border-radius: 10px;
-    border: none;
     background: linear-gradient(90deg, #8b5cf6, #25d9ff);
     color: white;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
+    border: none;
+    transition: .2s;
 }
 
 .button:hover {
-    opacity: 0.85;
+    opacity: .85;
+    transform: translateY(-2px);
+}
+
+.soon {
+    background: #15151f;
+    border: 1px solid #30303f;
+    color: #777;
 }
 
 .free {
@@ -160,7 +181,7 @@ nav a:hover {
 
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 35px;
     border-top: 1px solid #20202d;
     color: #666;
 }
@@ -171,7 +192,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 42px;
+        font-size: 45px;
     }
 }
 
@@ -185,7 +206,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 35px;
+        font-size: 38px;
     }
 }
 </style>
@@ -194,20 +215,26 @@ footer {
 <body>
 
 <header>
-    <div class="logo">SYNC TWEAKS</div>
+
+    <div class="logo">
+        SYNC TWEAKS
+    </div>
 
     <nav>
         <a href="#">Home</a>
         <a href="#products">Products</a>
     </nav>
+
 </header>
+
 
 <section class="hero">
 
     <h1>SYNC TWEAKS</h1>
 
     <p>
-        Performance tools and training experiences built for gamers.
+        Free performance tools, training experiences,
+        and gaming optimization guides.
     </p>
 
     <a class="hero-button" href="#products">
@@ -216,14 +243,22 @@ footer {
 
 </section>
 
+
 <main class="container" id="products">
 
     <div class="section-title">
-        <h2>Our Products</h2>
-        <p>Choose what you want to use.</p>
+
+        <h2>Free Tools</h2>
+
+        <p>
+            Everything here is free to use.
+        </p>
+
     </div>
 
+
     <div class="grid">
+
 
         <!-- AIM TRAINER -->
 
@@ -237,7 +272,9 @@ footer {
                 Practice reaction speed and target accuracy.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                FREE
+            </div>
 
             <a class="button" href="aim.html">
                 OPEN AIM TRAINER
@@ -255,12 +292,14 @@ footer {
             <h3>Editing Trainer</h3>
 
             <p>
-                Practice edit timing, reactions and consistency.
+                Practice edit timing, reactions, and consistency.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                FREE
+            </div>
 
-            <a class="button" href="#">
+            <a class="button soon" href="#">
                 COMING SOON
             </a>
 
@@ -276,12 +315,14 @@ footer {
             <h3>Console Tweaks</h3>
 
             <p>
-                Legitimate PlayStation and Xbox setup guidance.
+                Legitimate PlayStation and Xbox optimization guidance.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                FREE
+            </div>
 
-            <a class="button" href="#">
+            <a class="button soon" href="#">
                 COMING SOON
             </a>
 
@@ -297,12 +338,14 @@ footer {
             <h3>Network Guide</h3>
 
             <p>
-                Network setup guidance for more consistent gaming.
+                Tips for more consistent gaming connections.
             </p>
 
-            <div class="price">$5</div>
+            <div class="price">
+                FREE
+            </div>
 
-            <a class="button" href="#">
+            <a class="button soon" href="#">
                 COMING SOON
             </a>
 
@@ -315,15 +358,17 @@ footer {
 
             <div class="icon">💎</div>
 
-            <h3>Premium Bundle</h3>
+            <h3>SyncTweaks Bundle</h3>
 
             <p>
-                Combine the SyncTweaks training experiences.
+                A collection of the SyncTweaks tools and training experiences.
             </p>
 
-            <div class="price">$10</div>
+            <div class="price">
+                FREE
+            </div>
 
-            <a class="button" href="#">
+            <a class="button soon" href="#">
                 COMING SOON
             </a>
 
@@ -339,10 +384,12 @@ footer {
             <h3>PC Tweaks</h3>
 
             <p>
-                Legitimate Windows performance settings and cleanup.
+                Legitimate Windows performance settings and cleanup tools.
             </p>
 
-            <div class="price">FREE</div>
+            <div class="price">
+                FREE
+            </div>
 
             <a
                 class="button free"
@@ -353,12 +400,16 @@ footer {
 
         </div>
 
+
     </div>
 
 </main>
 
+
 <footer>
-    © 2026 SyncTweaks • Performance & Training Tools
+
+    © 2026 SyncTweaks • Free Gaming Tools
+
 </footer>
 
 </body>
