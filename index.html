@@ -11,6 +11,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -25,6 +29,9 @@ header {
     padding: 22px 7%;
     background: #08080e;
     border-bottom: 1px solid #20202d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -48,11 +55,12 @@ nav a:hover {
 .hero {
     text-align: center;
     padding: 100px 20px 80px;
-    background: radial-gradient(circle at 50% 20%, #29104a, #050509 60%);
+    background:
+        radial-gradient(circle at 50% 15%, #321052, #050509 60%);
 }
 
 .hero h1 {
-    font-size: 60px;
+    font-size: 62px;
     margin: 0;
     background: linear-gradient(90deg, #a855f7, #25d9ff);
     -webkit-background-clip: text;
@@ -76,12 +84,6 @@ nav a:hover {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: .2s;
-}
-
-.hero-button:hover {
-    transform: translateY(-2px);
-    opacity: .9;
 }
 
 .container {
@@ -97,7 +99,6 @@ nav a:hover {
 
 .section-title h2 {
     font-size: 34px;
-    margin-bottom: 10px;
 }
 
 .section-title p {
@@ -136,7 +137,7 @@ nav a:hover {
 .card p {
     color: #999;
     line-height: 1.5;
-    min-height: 48px;
+    min-height: 50px;
 }
 
 .price {
@@ -160,23 +161,167 @@ nav a:hover {
     text-decoration: none;
     cursor: pointer;
     border: none;
-    transition: .2s;
 }
 
 .button:hover {
     opacity: .85;
-    transform: translateY(-2px);
-}
-
-.soon {
-    background: #15151f;
-    border: 1px solid #30303f;
-    color: #777;
 }
 
 .free {
     background: #15151f;
     border: 1px solid #30303f;
+}
+
+.trainer-section {
+    display: none;
+    margin-top: 70px;
+    padding: 30px;
+    background: #0b0b12;
+    border: 1px solid #29293a;
+    border-radius: 20px;
+}
+
+.trainer-section.active {
+    display: block;
+}
+
+.trainer-title {
+    text-align: center;
+}
+
+.trainer-title h2 {
+    font-size: 35px;
+}
+
+.trainer-title p {
+    color: #888;
+}
+
+.aim-area {
+    position: relative;
+    height: 430px;
+    margin-top: 25px;
+    background: #07070d;
+    border: 1px solid #29293a;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.target {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        #25d9ff 0%,
+        #8b5cf6 55%,
+        #30145a 100%
+    );
+    box-shadow: 0 0 25px #25d9ff66;
+    cursor: crosshair;
+    display: none;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.stat {
+    min-width: 120px;
+    text-align: center;
+    background: #101019;
+    border: 1px solid #29293a;
+    border-radius: 12px;
+    padding: 14px 20px;
+}
+
+.stat span {
+    display: block;
+    color: #888;
+    font-size: 13px;
+}
+
+.stat strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 23px;
+}
+
+.edit-area {
+    margin-top: 25px;
+    padding: 35px 20px;
+    background: #07070d;
+    border: 1px solid #29293a;
+    border-radius: 15px;
+}
+
+.sequence {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.edit-box {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 2px solid #29293a;
+    background: #101019;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.edit-box.active {
+    border-color: #25d9ff;
+    box-shadow: 0 0 20px #25d9ff55;
+}
+
+.edit-box.done {
+    border-color: #a855f7;
+    background: #1a1025;
+}
+
+.status {
+    text-align: center;
+    color: #aaa;
+    min-height: 25px;
+}
+
+.instructions {
+    margin-top: 25px;
+    padding: 18px;
+    background: #101019;
+    border: 1px solid #29293a;
+    border-radius: 12px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.guide {
+    margin-top: 20px;
+    padding: 20px;
+    background: #101019;
+    border: 1px solid #29293a;
+    border-radius: 12px;
+}
+
+.guide h3 {
+    margin-top: 0;
+}
+
+.guide p {
+    color: #999;
+    line-height: 1.6;
 }
 
 footer {
@@ -187,6 +332,7 @@ footer {
 }
 
 @media (max-width: 800px) {
+
     .grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -197,6 +343,7 @@ footer {
 }
 
 @media (max-width: 550px) {
+
     nav {
         display: none;
     }
@@ -207,6 +354,16 @@ footer {
 
     .hero h1 {
         font-size: 38px;
+    }
+
+    .aim-area {
+        height: 350px;
+    }
+
+    .edit-box {
+        width: 65px;
+        height: 65px;
+        font-size: 23px;
     }
 }
 </style>
@@ -223,6 +380,7 @@ footer {
     <nav>
         <a href="#">Home</a>
         <a href="#products">Products</a>
+        <a href="#trainers">Trainers</a>
     </nav>
 
 </header>
@@ -233,8 +391,8 @@ footer {
     <h1>SYNC TWEAKS</h1>
 
     <p>
-        Free performance tools, training experiences,
-        and gaming optimization guides.
+        Free gaming tools, training experiences,
+        and optimization guides.
     </p>
 
     <a class="hero-button" href="#products">
@@ -251,7 +409,7 @@ footer {
         <h2>Free Tools</h2>
 
         <p>
-            Everything here is free to use.
+            Everything on SyncTweaks is free.
         </p>
 
     </div>
@@ -259,8 +417,6 @@ footer {
 
     <div class="grid">
 
-
-        <!-- AIM TRAINER -->
 
         <div class="card">
 
@@ -276,14 +432,14 @@ footer {
                 FREE
             </div>
 
-            <a class="button" href="aim.html">
+            <button
+                class="button"
+                onclick="showTrainer('aim')">
                 OPEN AIM TRAINER
-            </a>
+            </button>
 
         </div>
 
-
-        <!-- EDITING TRAINER -->
 
         <div class="card">
 
@@ -292,21 +448,21 @@ footer {
             <h3>Editing Trainer</h3>
 
             <p>
-                Practice edit timing, reactions, and consistency.
+                Practice reaction timing and keyboard consistency.
             </p>
 
             <div class="price">
                 FREE
             </div>
 
-            <a class="button soon" href="#">
-                COMING SOON
-            </a>
+            <button
+                class="button"
+                onclick="showTrainer('editing')">
+                OPEN EDITING TRAINER
+            </button>
 
         </div>
 
-
-        <!-- CONSOLE -->
 
         <div class="card">
 
@@ -315,21 +471,21 @@ footer {
             <h3>Console Tweaks</h3>
 
             <p>
-                Legitimate PlayStation and Xbox optimization guidance.
+                Legitimate PlayStation and Xbox setup guidance.
             </p>
 
             <div class="price">
                 FREE
             </div>
 
-            <a class="button soon" href="#">
-                COMING SOON
-            </a>
+            <button
+                class="button"
+                onclick="showTrainer('console')">
+                OPEN CONSOLE GUIDE
+            </button>
 
         </div>
 
-
-        <!-- NETWORK -->
 
         <div class="card">
 
@@ -338,21 +494,21 @@ footer {
             <h3>Network Guide</h3>
 
             <p>
-                Tips for more consistent gaming connections.
+                Tips for improving connection consistency.
             </p>
 
             <div class="price">
                 FREE
             </div>
 
-            <a class="button soon" href="#">
-                COMING SOON
-            </a>
+            <button
+                class="button"
+                onclick="showTrainer('network')">
+                OPEN NETWORK GUIDE
+            </button>
 
         </div>
 
-
-        <!-- PREMIUM -->
 
         <div class="card">
 
@@ -361,21 +517,21 @@ footer {
             <h3>SyncTweaks Bundle</h3>
 
             <p>
-                A collection of the SyncTweaks tools and training experiences.
+                Access the complete collection of free tools.
             </p>
 
             <div class="price">
                 FREE
             </div>
 
-            <a class="button soon" href="#">
-                COMING SOON
-            </a>
+            <button
+                class="button"
+                onclick="showTrainer('bundle')">
+                OPEN BUNDLE
+            </button>
 
         </div>
 
-
-        <!-- PC TWEAKS -->
 
         <div class="card">
 
@@ -384,7 +540,7 @@ footer {
             <h3>PC Tweaks</h3>
 
             <p>
-                Legitimate Windows performance settings and cleanup tools.
+                Legitimate Windows performance settings and cleanup.
             </p>
 
             <div class="price">
@@ -400,8 +556,313 @@ footer {
 
         </div>
 
-
     </div>
+
+
+    <section id="trainers">
+
+
+        <!-- AIM TRAINER -->
+
+        <div
+            id="aimTrainer"
+            class="trainer-section">
+
+            <div class="trainer-title">
+
+                <h2>🎯 Aim Trainer</h2>
+
+                <p>
+                    Click the targets as quickly as you can.
+                </p>
+
+            </div>
+
+            <div
+                class="aim-area"
+                id="aimArea">
+
+                <div
+                    class="target"
+                    id="target">
+                </div>
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span>Hits</span>
+                    <strong id="hits">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Misses</span>
+                    <strong id="misses">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Accuracy</span>
+                    <strong id="accuracy">0%</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Best Reaction</span>
+                    <strong id="best">--</strong>
+                </div>
+
+            </div>
+
+            <div style="text-align:center">
+
+                <button
+                    class="button"
+                    id="aimStart"
+                    style="max-width:250px;margin:25px auto 0;">
+                    START TRAINING
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- EDITING TRAINER -->
+
+        <div
+            id="editingTrainer"
+            class="trainer-section">
+
+            <div class="trainer-title">
+
+                <h2>⚡ Editing Trainer</h2>
+
+                <p>
+                    Follow the displayed key sequence.
+                </p>
+
+            </div>
+
+            <div class="edit-area">
+
+                <div
+                    class="status"
+                    id="editStatus">
+                    Press START to begin.
+                </div>
+
+                <div
+                    class="sequence">
+
+                    <div
+                        class="edit-box"
+                        id="box0">
+                        ?
+                    </div>
+
+                    <div
+                        class="edit-box"
+                        id="box1">
+                        ?
+                    </div>
+
+                    <div
+                        class="edit-box"
+                        id="box2">
+                        ?
+                    </div>
+
+                    <div
+                        class="edit-box"
+                        id="box3">
+                        ?
+                    </div>
+
+                </div>
+
+                <div style="text-align:center">
+
+                    <button
+                        class="button"
+                        id="editStart"
+                        style="max-width:250px;margin:auto;">
+                        START TRAINING
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span>Completed</span>
+                    <strong id="completed">0</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Best Time</span>
+                    <strong id="editBest">--</strong>
+                </div>
+
+                <div class="stat">
+                    <span>Last Time</span>
+                    <strong id="lastTime">--</strong>
+                </div>
+
+            </div>
+
+            <div class="instructions">
+
+                <strong>How to play</strong><br>
+
+                Press START and follow the four-key sequence
+                using your keyboard. This is a practice tool only;
+                it does not automate gameplay.
+
+            </div>
+
+        </div>
+
+
+        <!-- CONSOLE GUIDE -->
+
+        <div
+            id="consoleTrainer"
+            class="trainer-section">
+
+            <div class="trainer-title">
+
+                <h2>🎮 Console Tweaks</h2>
+
+                <p>
+                    Legitimate console responsiveness settings.
+                </p>
+
+            </div>
+
+            <div class="guide">
+
+                <h3>PlayStation 5</h3>
+
+                <p>
+                    If your display supports 120 Hz, use the
+                    console's performance-focused settings and
+                    enable Fortnite's 120 FPS option when available.
+                </p>
+
+                <h3>Xbox Series X|S</h3>
+
+                <p>
+                    If supported by your display, enable 120 Hz
+                    in the console display settings and use
+                    Fortnite's 120 FPS option when available.
+                </p>
+
+                <h3>TV Settings</h3>
+
+                <p>
+                    If your TV has Game Mode or a low-latency mode,
+                    enabling it can reduce display processing delay.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- NETWORK GUIDE -->
+
+        <div
+            id="networkTrainer"
+            class="trainer-section">
+
+            <div class="trainer-title">
+
+                <h2>🌐 Network Guide</h2>
+
+                <p>
+                    Tips for a more consistent connection.
+                </p>
+
+            </div>
+
+            <div class="guide">
+
+                <h3>1. Ethernet</h3>
+
+                <p>
+                    A wired Ethernet connection can provide
+                    a more consistent connection than Wi-Fi.
+                </p>
+
+                <h3>2. Reduce Network Traffic</h3>
+
+                <p>
+                    Avoid large downloads or streaming on the
+                    same connection while gaming.
+                </p>
+
+                <h3>3. Router Location</h3>
+
+                <p>
+                    For Wi-Fi, keeping the router in a more
+                    open central location can help signal quality.
+                </p>
+
+                <h3>Important</h3>
+
+                <p>
+                    No legitimate tweak can guarantee 0 ping.
+                    Your latency depends on your network,
+                    ISP, server location, and routing.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUNDLE -->
+
+        <div
+            id="bundleTrainer"
+            class="trainer-section">
+
+            <div class="trainer-title">
+
+                <h2>💎 SyncTweaks Bundle</h2>
+
+                <p>
+                    Everything currently available on SyncTweaks.
+                </p>
+
+            </div>
+
+            <div class="guide">
+
+                <h3>Included</h3>
+
+                <p>
+                    🎯 Aim Trainer<br>
+                    ⚡ Editing Trainer<br>
+                    🎮 Console Guide<br>
+                    🌐 Network Guide<br>
+                    🛠️ PC Tweaks
+                </p>
+
+                <h3>Price</h3>
+
+                <p>
+                    <strong>FREE</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
 
 </main>
 
@@ -411,6 +872,440 @@ footer {
     © 2026 SyncTweaks • Free Gaming Tools
 
 </footer>
+
+
+<script>
+
+/* =========================
+   SECTION SWITCHING
+========================= */
+
+function showTrainer(type) {
+
+    const sections = document.querySelectorAll(".trainer-section");
+
+    sections.forEach(section => {
+        section.classList.remove("active");
+    });
+
+    let selected = null;
+
+    if (type === "aim") {
+        selected = document.getElementById("aimTrainer");
+    }
+
+    if (type === "editing") {
+        selected = document.getElementById("editingTrainer");
+    }
+
+    if (type === "console") {
+        selected = document.getElementById("consoleTrainer");
+    }
+
+    if (type === "network") {
+        selected = document.getElementById("networkTrainer");
+    }
+
+    if (type === "bundle") {
+        selected = document.getElementById("bundleTrainer");
+    }
+
+    if (selected) {
+
+        selected.classList.add("active");
+
+        selected.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+}
+
+
+/* =========================
+   AIM TRAINER
+========================= */
+
+const aimArea =
+    document.getElementById("aimArea");
+
+const target =
+    document.getElementById("target");
+
+const hitsText =
+    document.getElementById("hits");
+
+const missesText =
+    document.getElementById("misses");
+
+const accuracyText =
+    document.getElementById("accuracy");
+
+const bestText =
+    document.getElementById("best");
+
+const aimStart =
+    document.getElementById("aimStart");
+
+let hits = 0;
+let misses = 0;
+let bestReaction = null;
+let aimStartTime = 0;
+let aimRunning = false;
+
+
+function spawnTarget() {
+
+    const maxX =
+        aimArea.clientWidth -
+        target.offsetWidth;
+
+    const maxY =
+        aimArea.clientHeight -
+        target.offsetHeight;
+
+    const x =
+        Math.random() * Math.max(0, maxX);
+
+    const y =
+        Math.random() * Math.max(0, maxY);
+
+    target.style.left =
+        x + "px";
+
+    target.style.top =
+        y + "px";
+
+    target.style.display =
+        "block";
+
+    aimStartTime =
+        performance.now();
+
+}
+
+
+function updateAimStats() {
+
+    const total =
+        hits + misses;
+
+    const accuracy =
+        total === 0
+        ? 0
+        : Math.round(
+            (hits / total) * 100
+        );
+
+    hitsText.textContent =
+        hits;
+
+    missesText.textContent =
+        misses;
+
+    accuracyText.textContent =
+        accuracy + "%";
+
+    bestText.textContent =
+        bestReaction === null
+        ? "--"
+        : bestReaction + " ms";
+
+}
+
+
+target.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (!aimRunning) return;
+
+        const reaction =
+            Math.round(
+                performance.now() -
+                aimStartTime
+            );
+
+        hits++;
+
+        if (
+            bestReaction === null ||
+            reaction < bestReaction
+        ) {
+            bestReaction = reaction;
+        }
+
+        updateAimStats();
+
+        spawnTarget();
+
+    }
+);
+
+
+aimArea.addEventListener(
+    "click",
+    function() {
+
+        if (!aimRunning) return;
+
+        misses++;
+
+        updateAimStats();
+
+    }
+);
+
+
+aimStart.addEventListener(
+    "click",
+    function() {
+
+        hits = 0;
+        misses = 0;
+        bestReaction = null;
+        aimRunning = true;
+
+        aimStart.textContent =
+            "RESET TRAINING";
+
+        updateAimStats();
+
+        spawnTarget();
+
+    }
+);
+
+
+/* =========================
+   EDITING TRAINER
+========================= */
+
+const editKeys =
+    ["Q", "E", "R", "F"];
+
+const editBoxes =
+    [
+        document.getElementById("box0"),
+        document.getElementById("box1"),
+        document.getElementById("box2"),
+        document.getElementById("box3")
+    ];
+
+const editStatus =
+    document.getElementById("editStatus");
+
+const editStart =
+    document.getElementById("editStart");
+
+const completedText =
+    document.getElementById("completed");
+
+const editBestText =
+    document.getElementById("editBest");
+
+const lastTimeText =
+    document.getElementById("lastTime");
+
+let editSequence = [];
+let editCurrent = 0;
+let editRunning = false;
+
+let completedRounds = 0;
+let editBest = null;
+let editStartTime = 0;
+
+
+function createEditSequence() {
+
+    editSequence = [];
+
+    for (let i = 0; i < 4; i++) {
+
+        const index =
+            Math.floor(
+                Math.random() *
+                editKeys.length
+            );
+
+        editSequence.push(
+            editKeys[index]
+        );
+
+    }
+
+}
+
+
+function displayEditSequence() {
+
+    editBoxes.forEach(
+        (box, index) => {
+
+            box.textContent =
+                editSequence[index];
+
+            box.classList.remove(
+                "active"
+            );
+
+            box.classList.remove(
+                "done"
+            );
+
+        }
+    );
+
+    editBoxes[0].classList.add(
+        "active"
+    );
+
+}
+
+
+function startEditing() {
+
+    createEditSequence();
+
+    editCurrent = 0;
+    editRunning = true;
+
+    editStartTime =
+        performance.now();
+
+    displayEditSequence();
+
+    editStatus.textContent =
+        "Follow the sequence!";
+
+    editStart.textContent =
+        "RESET TRAINING";
+
+}
+
+
+function finishEditing() {
+
+    const time =
+        Math.round(
+            performance.now() -
+            editStartTime
+        );
+
+    completedRounds++;
+
+    completedText.textContent =
+        completedRounds;
+
+    lastTimeText.textContent =
+        time + " ms";
+
+    if (
+        editBest === null ||
+        time < editBest
+    ) {
+        editBest = time;
+    }
+
+    editBestText.textContent =
+        editBest + " ms";
+
+    editRunning = false;
+
+    editStatus.textContent =
+        "Round complete! Press START for another.";
+
+    editBoxes.forEach(
+        box => {
+
+            box.classList.remove(
+                "active"
+            );
+
+            box.classList.add(
+                "done"
+            );
+
+        }
+    );
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (!editRunning) return;
+
+        const key =
+            event.key.toUpperCase();
+
+        if (!editKeys.includes(key)) {
+            return;
+        }
+
+        if (
+            key ===
+            editSequence[editCurrent]
+        ) {
+
+            editBoxes[
+                editCurrent
+            ].classList.remove(
+                "active"
+            );
+
+            editBoxes[
+                editCurrent
+            ].classList.add(
+                "done"
+            );
+
+            editCurrent++;
+
+            if (
+                editCurrent >=
+                editSequence.length
+            ) {
+
+                finishEditing();
+
+            } else {
+
+                editBoxes[
+                    editCurrent
+                ].classList.add(
+                    "active"
+                );
+
+            }
+
+        } else {
+
+            editStatus.textContent =
+                "Wrong key — try again!";
+
+        }
+
+    }
+);
+
+
+editStart.addEventListener(
+    "click",
+    function() {
+
+        startEditing();
+
+    }
+);
+
+</script>
 
 </body>
 </html>
