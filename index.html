@@ -122,7 +122,6 @@ nav a:hover {
 .card:hover {
     transform: translateY(-5px);
     border-color: #25d9ff;
-    box-shadow: 0 0 25px #25d9ff18;
 }
 
 .icon {
@@ -158,9 +157,8 @@ nav a:hover {
     color: white;
     font-weight: bold;
     text-align: center;
-    text-decoration: none;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
 }
 
 .button:hover {
@@ -254,10 +252,58 @@ nav a:hover {
 
 .edit-area {
     margin-top: 25px;
-    padding: 35px 20px;
+    padding: 30px 20px;
     background: #07070d;
     border: 1px solid #29293a;
     border-radius: 15px;
+}
+
+.bind-panel {
+    margin-top: 25px;
+    padding: 20px;
+    background: #101019;
+    border: 1px solid #29293a;
+    border-radius: 14px;
+}
+
+.bind-panel h3 {
+    margin-top: 0;
+}
+
+.bind-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.bind-input {
+    width: 100%;
+    padding: 13px;
+    margin-top: 7px;
+    border-radius: 9px;
+    border: 1px solid #30303f;
+    background: #08080e;
+    color: white;
+    outline: none;
+}
+
+.bind-input:focus {
+    border-color: #25d9ff;
+}
+
+.bind-label {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.save-button {
+    margin-top: 15px;
+}
+
+.bind-status {
+    color: #777;
+    font-size: 13px;
+    margin-top: 10px;
 }
 
 .sequence {
@@ -332,7 +378,6 @@ footer {
 }
 
 @media (max-width: 800px) {
-
     .grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -343,7 +388,6 @@ footer {
 }
 
 @media (max-width: 550px) {
-
     nav {
         display: none;
     }
@@ -354,6 +398,10 @@ footer {
 
     .hero h1 {
         font-size: 38px;
+    }
+
+    .bind-grid {
+        grid-template-columns: 1fr;
     }
 
     .aim-area {
@@ -417,7 +465,6 @@ footer {
 
     <div class="grid">
 
-
         <div class="card">
 
             <div class="icon">🎯</div>
@@ -428,9 +475,7 @@ footer {
                 Practice reaction speed and target accuracy.
             </p>
 
-            <div class="price">
-                FREE
-            </div>
+            <div class="price">FREE</div>
 
             <button
                 class="button"
@@ -448,12 +493,10 @@ footer {
             <h3>Editing Trainer</h3>
 
             <p>
-                Practice reaction timing and keyboard consistency.
+                Practice editing timing and your own keybinds.
             </p>
 
-            <div class="price">
-                FREE
-            </div>
+            <div class="price">FREE</div>
 
             <button
                 class="button"
@@ -474,9 +517,7 @@ footer {
                 Legitimate PlayStation and Xbox setup guidance.
             </p>
 
-            <div class="price">
-                FREE
-            </div>
+            <div class="price">FREE</div>
 
             <button
                 class="button"
@@ -497,9 +538,7 @@ footer {
                 Tips for improving connection consistency.
             </p>
 
-            <div class="price">
-                FREE
-            </div>
+            <div class="price">FREE</div>
 
             <button
                 class="button"
@@ -520,9 +559,7 @@ footer {
                 Access the complete collection of free tools.
             </p>
 
-            <div class="price">
-                FREE
-            </div>
+            <div class="price">FREE</div>
 
             <button
                 class="button"
@@ -543,9 +580,7 @@ footer {
                 Legitimate Windows performance settings and cleanup.
             </p>
 
-            <div class="price">
-                FREE
-            </div>
+            <div class="price">FREE</div>
 
             <a
                 class="button free"
@@ -638,10 +673,72 @@ footer {
                 <h2>⚡ Editing Trainer</h2>
 
                 <p>
-                    Follow the displayed key sequence.
+                    Set your own practice keybinds and follow the sequence.
                 </p>
 
             </div>
+
+
+            <!-- KEYBINDS -->
+
+            <div class="bind-panel">
+
+                <h3>⌨️ Your Keybinds</h3>
+
+                <div class="bind-grid">
+
+                    <div>
+
+                        <label
+                            class="bind-label"
+                            for="editKey">
+                            Edit Key
+                        </label>
+
+                        <input
+                            class="bind-input"
+                            id="editKey"
+                            type="text"
+                            maxlength="1"
+                            placeholder="F">
+
+                    </div>
+
+
+                    <div>
+
+                        <label
+                            class="bind-label"
+                            for="confirmKey">
+                            Confirm / Reset Key
+                        </label>
+
+                        <input
+                            class="bind-input"
+                            id="confirmKey"
+                            type="text"
+                            maxlength="1"
+                            placeholder="G">
+
+                    </div>
+
+                </div>
+
+                <button
+                    class="button save-button"
+                    id="saveBinds"
+                    style="max-width:220px;">
+                    SAVE BINDS
+                </button>
+
+                <div
+                    class="bind-status"
+                    id="bindStatus">
+                    Your practice binds are saved only in this browser.
+                </div>
+
+            </div>
+
 
             <div class="edit-area">
 
@@ -651,8 +748,8 @@ footer {
                     Press START to begin.
                 </div>
 
-                <div
-                    class="sequence">
+
+                <div class="sequence">
 
                     <div
                         class="edit-box"
@@ -680,6 +777,7 @@ footer {
 
                 </div>
 
+
                 <div style="text-align:center">
 
                     <button
@@ -692,6 +790,7 @@ footer {
                 </div>
 
             </div>
+
 
             <div class="stats">
 
@@ -712,20 +811,27 @@ footer {
 
             </div>
 
+
             <div class="instructions">
 
-                <strong>How to play</strong><br>
+                <strong>How to use it</strong><br>
 
-                Press START and follow the four-key sequence
-                using your keyboard. This is a practice tool only;
-                it does not automate gameplay.
+                Enter the key you use for editing.
+                Save your binds, then start the trainer.
+                The practice sequence will use your chosen key.
+
+                <br><br>
+
+                This trainer only reads keyboard input while
+                the webpage is open. It does not change Fortnite
+                settings or automate gameplay.
 
             </div>
 
         </div>
 
 
-        <!-- CONSOLE GUIDE -->
+        <!-- CONSOLE -->
 
         <div
             id="consoleTrainer"
@@ -746,24 +852,23 @@ footer {
                 <h3>PlayStation 5</h3>
 
                 <p>
-                    If your display supports 120 Hz, use the
-                    console's performance-focused settings and
-                    enable Fortnite's 120 FPS option when available.
+                    If your display supports 120 Hz, use
+                    performance-focused settings and enable
+                    Fortnite's 120 FPS option when available.
                 </p>
 
                 <h3>Xbox Series X|S</h3>
 
                 <p>
-                    If supported by your display, enable 120 Hz
-                    in the console display settings and use
-                    Fortnite's 120 FPS option when available.
+                    If your display supports it, enable 120 Hz
+                    and use Fortnite's 120 FPS option when available.
                 </p>
 
-                <h3>TV Settings</h3>
+                <h3>TV</h3>
 
                 <p>
-                    If your TV has Game Mode or a low-latency mode,
-                    enabling it can reduce display processing delay.
+                    Game Mode or Low Latency Mode can reduce
+                    display processing delay when supported.
                 </p>
 
             </div>
@@ -771,7 +876,7 @@ footer {
         </div>
 
 
-        <!-- NETWORK GUIDE -->
+        <!-- NETWORK -->
 
         <div
             id="networkTrainer"
@@ -789,33 +894,26 @@ footer {
 
             <div class="guide">
 
-                <h3>1. Ethernet</h3>
+                <h3>Ethernet</h3>
 
                 <p>
-                    A wired Ethernet connection can provide
-                    a more consistent connection than Wi-Fi.
+                    Ethernet can provide a more consistent
+                    connection than Wi-Fi.
                 </p>
 
-                <h3>2. Reduce Network Traffic</h3>
+                <h3>Reduce Network Traffic</h3>
 
                 <p>
-                    Avoid large downloads or streaming on the
-                    same connection while gaming.
-                </p>
-
-                <h3>3. Router Location</h3>
-
-                <p>
-                    For Wi-Fi, keeping the router in a more
-                    open central location can help signal quality.
+                    Avoid large downloads or heavy streaming
+                    while gaming.
                 </p>
 
                 <h3>Important</h3>
 
                 <p>
                     No legitimate tweak can guarantee 0 ping.
-                    Your latency depends on your network,
-                    ISP, server location, and routing.
+                    Latency depends on your network, ISP,
+                    server location, and routing.
                 </p>
 
             </div>
@@ -845,7 +943,7 @@ footer {
 
                 <p>
                     🎯 Aim Trainer<br>
-                    ⚡ Editing Trainer<br>
+                    ⚡ Editing Trainer + Keybind Setup<br>
                     🎮 Console Guide<br>
                     🌐 Network Guide<br>
                     🛠️ PC Tweaks
@@ -882,7 +980,10 @@ footer {
 
 function showTrainer(type) {
 
-    const sections = document.querySelectorAll(".trainer-section");
+    const sections =
+        document.querySelectorAll(
+            ".trainer-section"
+        );
 
     sections.forEach(section => {
         section.classList.remove("active");
@@ -891,23 +992,28 @@ function showTrainer(type) {
     let selected = null;
 
     if (type === "aim") {
-        selected = document.getElementById("aimTrainer");
+        selected =
+            document.getElementById("aimTrainer");
     }
 
     if (type === "editing") {
-        selected = document.getElementById("editingTrainer");
+        selected =
+            document.getElementById("editingTrainer");
     }
 
     if (type === "console") {
-        selected = document.getElementById("consoleTrainer");
+        selected =
+            document.getElementById("consoleTrainer");
     }
 
     if (type === "network") {
-        selected = document.getElementById("networkTrainer");
+        selected =
+            document.getElementById("networkTrainer");
     }
 
     if (type === "bundle") {
-        selected = document.getElementById("bundleTrainer");
+        selected =
+            document.getElementById("bundleTrainer");
     }
 
     if (selected) {
@@ -967,10 +1073,12 @@ function spawnTarget() {
         target.offsetHeight;
 
     const x =
-        Math.random() * Math.max(0, maxX);
+        Math.random() *
+        Math.max(0, maxX);
 
     const y =
-        Math.random() * Math.max(0, maxY);
+        Math.random() *
+        Math.max(0, maxY);
 
     target.style.left =
         x + "px";
@@ -1085,6 +1193,18 @@ aimStart.addEventListener(
    EDITING TRAINER
 ========================= */
 
+const editKeyInput =
+    document.getElementById("editKey");
+
+const confirmKeyInput =
+    document.getElementById("confirmKey");
+
+const saveBinds =
+    document.getElementById("saveBinds");
+
+const bindStatus =
+    document.getElementById("bindStatus");
+
 const editKeys =
     ["Q", "E", "R", "F"];
 
@@ -1120,26 +1240,113 @@ let editBest = null;
 let editStartTime = 0;
 
 
+/* LOAD SAVED BINDS */
+
+const savedEditKey =
+    localStorage.getItem(
+        "syncTweaksEditKey"
+    );
+
+const savedConfirmKey =
+    localStorage.getItem(
+        "syncTweaksConfirmKey"
+    );
+
+if (savedEditKey) {
+    editKeyInput.value =
+        savedEditKey;
+}
+
+if (savedConfirmKey) {
+    confirmKeyInput.value =
+        savedConfirmKey;
+}
+
+
+/* SAVE BINDS */
+
+saveBinds.addEventListener(
+    "click",
+    function() {
+
+        const editKey =
+            editKeyInput.value
+            .trim()
+            .toUpperCase();
+
+        const confirmKey =
+            confirmKeyInput.value
+            .trim()
+            .toUpperCase();
+
+        if (!editKey) {
+
+            bindStatus.textContent =
+                "Enter an Edit Key first.";
+
+            return;
+        }
+
+        localStorage.setItem(
+            "syncTweaksEditKey",
+            editKey
+        );
+
+        localStorage.setItem(
+            "syncTweaksConfirmKey",
+            confirmKey
+        );
+
+        editKeyInput.value =
+            editKey;
+
+        confirmKeyInput.value =
+            confirmKey;
+
+        bindStatus.textContent =
+            "✓ Binds saved successfully.";
+
+    }
+);
+
+
+/* CREATE PRACTICE SEQUENCE */
+
 function createEditSequence() {
+
+    const selectedKey =
+        editKeyInput.value
+        .trim()
+        .toUpperCase();
+
+    if (!selectedKey) {
+
+        editStatus.textContent =
+            "Set your Edit Key first.";
+
+        return false;
+    }
 
     editSequence = [];
 
+    /*
+       The sequence is a practice pattern
+       based on the user's chosen edit key.
+    */
+
     for (let i = 0; i < 4; i++) {
 
-        const index =
-            Math.floor(
-                Math.random() *
-                editKeys.length
-            );
-
         editSequence.push(
-            editKeys[index]
+            selectedKey
         );
 
     }
 
+    return true;
 }
 
+
+/* DISPLAY SEQUENCE */
 
 function displayEditSequence() {
 
@@ -1167,11 +1374,16 @@ function displayEditSequence() {
 }
 
 
+/* START EDIT TRAINING */
+
 function startEditing() {
 
-    createEditSequence();
+    if (!createEditSequence()) {
+        return;
+    }
 
     editCurrent = 0;
+
     editRunning = true;
 
     editStartTime =
@@ -1180,13 +1392,15 @@ function startEditing() {
     displayEditSequence();
 
     editStatus.textContent =
-        "Follow the sequence!";
+        "Press your Edit Key four times!";
 
     editStart.textContent =
         "RESET TRAINING";
 
 }
 
+
+/* FINISH ROUND */
 
 function finishEditing() {
 
@@ -1208,7 +1422,10 @@ function finishEditing() {
         editBest === null ||
         time < editBest
     ) {
-        editBest = time;
+
+        editBest =
+            time;
+
     }
 
     editBestText.textContent =
@@ -1236,59 +1453,62 @@ function finishEditing() {
 }
 
 
+/* KEYBOARD INPUT */
+
 document.addEventListener(
     "keydown",
     function(event) {
 
-        if (!editRunning) return;
+        if (!editRunning) {
+            return;
+        }
 
         const key =
             event.key.toUpperCase();
 
-        if (!editKeys.includes(key)) {
+        const selectedKey =
+            editKeyInput.value
+            .trim()
+            .toUpperCase();
+
+        if (
+            key !== selectedKey
+        ) {
+
+            editStatus.textContent =
+                "Press your saved Edit Key.";
+
             return;
         }
 
+        editBoxes[
+            editCurrent
+        ].classList.remove(
+            "active"
+        );
+
+        editBoxes[
+            editCurrent
+        ].classList.add(
+            "done"
+        );
+
+        editCurrent++;
+
         if (
-            key ===
-            editSequence[editCurrent]
+            editCurrent >=
+            editSequence.length
         ) {
 
-            editBoxes[
-                editCurrent
-            ].classList.remove(
-                "active"
-            );
+            finishEditing();
+
+        } else {
 
             editBoxes[
                 editCurrent
             ].classList.add(
-                "done"
+                "active"
             );
-
-            editCurrent++;
-
-            if (
-                editCurrent >=
-                editSequence.length
-            ) {
-
-                finishEditing();
-
-            } else {
-
-                editBoxes[
-                    editCurrent
-                ].classList.add(
-                    "active"
-                );
-
-            }
-
-        } else {
-
-            editStatus.textContent =
-                "Wrong key — try again!";
 
         }
 
